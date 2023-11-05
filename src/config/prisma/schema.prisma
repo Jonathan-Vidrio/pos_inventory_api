@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("MARIADB_URI")
+}
+
+model Worker {
+  id            Int      @id @default(autoincrement())
+  name          String
+  firstSurname  String
+  secondSurname String
+  salary        Float
+  job           Job      @relation(fields: [jobId], references: [id])
+  jobId         Int
+  status        Int      @default(1)
+}
+
+model Job {
+  id            Int      @id @default(autoincrement())
+  name          String
+  description   String
+  status        Int      @default(1)
+  workers       Worker[]
+}
+
+model Client {
+  id            Int      @id @default(autoincrement())
+  name          String
+  firstSurname  String
+  secondSurname String
+  address       String
+  phone         String
+  status        Int      @default(1)
+}
