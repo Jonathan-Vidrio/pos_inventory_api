@@ -6,8 +6,17 @@ const getCategories = async () => {
     return result;
 }
 
+const getEnabledCategories = async () => {
+    const result = await CategoryModel.find(
+        { status: 1 }
+    );
+    return result;
+}
+
 const getCategory = async (_id: string) => {
-    const result = await CategoryModel.findById({ _id: _id });
+    const result = await CategoryModel.findById(
+        { _id: _id }
+    );
     return result;
 }
 
@@ -34,10 +43,21 @@ const disableCategory = async (_id: string) => {
     return result;
 }
 
+const enableCategory = async (_id: string) => {
+    const result = await CategoryModel.findByIdAndUpdate(
+        { _id: _id },
+        { status: 1 },
+        { new: true }
+    );
+    return result;
+}
+
 export {
     getCategories,
+    getEnabledCategories,
     getCategory,
     registerCategory,
     updateCategory,
-    disableCategory
+    disableCategory,
+    enableCategory,
 }

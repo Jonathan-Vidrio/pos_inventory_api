@@ -10,6 +10,15 @@ const getAllCategories = async (req: Request, res: Response) => {
     }
 }
 
+const getEnabledCategories = async (req: Request, res: Response) => {
+    try {
+        const result = await service.getEnabledCategories();
+        res.send(result);
+    } catch (e) {
+        res.status(500).send("ERROR_GET_ENABLED_CATEGORIES");
+    }
+}
+
 const getCategoryById = async (req: Request, res: Response) => {
     try {
         const { _id } = req.params;
@@ -30,8 +39,43 @@ const postCategory = async (req: Request, res: Response) => {
     }
 }
 
+const putCategory = async (req: Request, res: Response) => {
+    try {
+        const { body } = req;
+        const { _id } = req.params;
+        const result = await service.updateCategory(_id, body);
+        res.send(result);
+    } catch (e) {
+        res.status(500).send("ERROR_PUT_CATEGORY");
+    }
+}
+
+const disableCategory = async (req: Request, res: Response) => {
+    try {
+        const { _id } = req.params;
+        const result = await service.disableCategory(_id);
+        res.send(result);
+    } catch (e) {
+        res.status(500).send("ERROR_DISABLE_CATEGORY");
+    }
+}
+
+const enableCategory = async (req: Request, res: Response) => {
+    try {
+        const { _id } = req.params;
+        const result = await service.enableCategory(_id);
+        res.send(result);
+    } catch (e) {
+        res.status(500).send("ERROR_ENABLE_CATEGORY");
+    }
+}
+
 export {
     getAllCategories,
+    getEnabledCategories,
     getCategoryById,
     postCategory,
+    putCategory,
+    disableCategory,
+    enableCategory,
 }

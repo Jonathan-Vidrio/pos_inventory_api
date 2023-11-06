@@ -1,8 +1,7 @@
-import { Document } from "mongoose";
-
-interface IJob extends Document {
+interface IJob {
     name: string,
     description: string,
+    salary: number,
     status?: number,
 }
 

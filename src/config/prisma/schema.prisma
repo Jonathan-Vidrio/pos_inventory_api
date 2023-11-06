@@ -11,30 +11,30 @@ datasource db {
 }
 
 model Worker {
-  id            Int      @id @default(autoincrement())
+  id            Int    @id @default(autoincrement())
   name          String
   firstSurname  String
   secondSurname String
-  salary        Float
-  job           Job      @relation(fields: [jobId], references: [id])
+  job           Job    @relation(fields: [jobId], references: [id])
   jobId         Int
-  status        Int      @default(1)
+  status        Int    @default(1)
 }
 
 model Job {
-  id            Int      @id @default(autoincrement())
-  name          String
-  description   String
-  status        Int      @default(1)
-  workers       Worker[]
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String
+  salary      Float
+  status      Int      @default(1)
+  workers     Worker[]
 }
 
 model Client {
-  id            Int      @id @default(autoincrement())
+  id            Int    @id @default(autoincrement())
   name          String
   firstSurname  String
   secondSurname String
   address       String
   phone         String
-  status        Int      @default(1)
+  status        Int    @default(1)
 }

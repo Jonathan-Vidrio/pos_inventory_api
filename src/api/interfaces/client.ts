@@ -1,6 +1,4 @@
-import { Document } from "mongoose";
-
-interface IClient extends Document {
+interface IClient {
     name: string,
     firstSurname: string,
     secondSurname?: string,

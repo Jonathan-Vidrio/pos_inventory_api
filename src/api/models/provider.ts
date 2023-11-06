@@ -24,3 +24,7 @@ const ProviderSchema = new Schema<IProvider>(
             default: 1
         }
     });
+
+const ProviderModel = model('Provider', ProviderSchema);
+
+export default ProviderModel;

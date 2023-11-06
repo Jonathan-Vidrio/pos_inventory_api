@@ -1,11 +1,8 @@
-import { Document, Types } from "mongoose";
-
-interface IWorker extends Document {
+interface IWorker {
     name: string,
     firstSurname: string,
     secondSurname?: string,
-    salary: number,
-    job: Types.ObjectId,
+    job: number,
     status?: number,
 }
 

@@ -1,3 +1,5 @@
+# noinspection SqlNoDataSourceInspectionForFile
+
 -- CreateTable
 CREATE TABLE `Worker` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,

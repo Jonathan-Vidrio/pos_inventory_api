@@ -8,6 +8,15 @@ const getJobs = async () => {
     return result;
 }
 
+const getEnabledJobs = async () => {
+    const result = await prisma.job.findMany({
+        where: {
+            status: 1
+        }
+    });
+    return result;
+}
+
 const getJob = async (id: number) => {
     const result = await prisma.job.findUnique({
         where: {
@@ -22,7 +31,8 @@ const registerJob = async (data: IJob) => {
         data: {
             name: data.name,
             description: data.description,
-            status: 1
+            salary: data.salary,
+            status: data.status ?? 1,
         }
     });
     return result;
@@ -53,10 +63,25 @@ const disableJob = async (id: number) => {
     return result;
 }
 
+const enableJob = async (id: number) => {
+    const result = await prisma.job.update({
+        where: {
+            id: id
+        },
+        data: {
+            status: 1
+        }
+    });
+    return result;
+
+}
+
 export {
     getJobs,
+    getEnabledJobs,
     getJob,
     registerJob,
     updateJob,
-    disableJob
+    disableJob,
+    enableJob,
 }
