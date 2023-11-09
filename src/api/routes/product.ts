@@ -13,9 +13,9 @@ router.post("/", controller.postProduct);
 
 router.put("/:_id", controller.putProduct);
 
-router.put("/disable/:_id", controller.disableProduct);
+router.delete("/:_id", controller.disableProduct);
 
-router.put("/enable/:_id", controller.enableProduct);
+router.patch("/:_id", controller.enableProduct);
 
 export {
     router,

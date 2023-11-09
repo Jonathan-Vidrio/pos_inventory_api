@@ -40,6 +40,7 @@ const disableCategory = async (_id: string) => {
         { status: 0 },
         { new: true }
     );
+    // cambiar a "" el campo de la categoria en los productos
     return result;
 }
 

@@ -12,6 +12,9 @@ const getEnabledWorkers = async () => {
     const result = await prisma.worker.findMany({
         where: {
             status: 1
+        },
+        include: {
+            job: true
         }
     });
     return result;
@@ -21,6 +24,9 @@ const getWorker = async (id: number) => {
     const result = await prisma.worker.findUnique({
         where: {
             id: id
+        },
+        include: {
+            job: true
         }
     });
     return result;

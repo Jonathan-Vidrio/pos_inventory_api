@@ -12,9 +12,9 @@ router.post("/", controller.postClient);
 
 router.put("/:id", controller.putClient);
 
-router.put("/disable/:id", controller.disableClient);
+router.delete("/:id", controller.disableClient);
 
-router.put("/enable/:id", controller.enableClient);
+router.patch("/:id", controller.enableClient);
 
 export {
     router,

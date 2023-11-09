@@ -9,14 +9,18 @@ const getProducts = async () => {
 const getEnabledProducts = async () => {
     const result = await ProductModel.find(
         { status: 1 }
-    );
+    )
+        .populate('category')
+        .populate({ path: 'provider'});
     return result;
 }
 
 const getProduct = async (_id: string) => {
     const result = await ProductModel.findById(
         { _id: _id }
-    );
+    )
+        .populate('category')
+        .populate({ path: 'provider'});
     return result;
 }
 

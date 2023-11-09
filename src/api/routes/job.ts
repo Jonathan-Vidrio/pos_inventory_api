@@ -13,9 +13,9 @@ router.post("/", controller.postJob);
 
 router.put("/:id", controller.putJob);
 
-router.put("/disable/:id", controller.disableJob);
+router.delete("/:id", controller.disableJob);
 
-router.put("/enable/:id", controller.enableJob);
+router.patch("/:id", controller.enableJob);
 
 export {
     router,

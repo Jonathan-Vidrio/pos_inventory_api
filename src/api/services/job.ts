@@ -45,7 +45,8 @@ const updateJob = async (id: number, data: IJob) => {
         },
         data: {
             name: data.name,
-            description: data.description
+            description: data.description,
+            salary: data.salary,
         }
     });
     return result;

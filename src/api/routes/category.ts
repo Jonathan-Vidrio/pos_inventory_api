@@ -13,9 +13,9 @@ router.post("/", controller.postCategory);
 
 router.put("/:_id", controller.putCategory);
 
-router.put("/disable/:_id", controller.disableCategory);
+router.delete("/:_id", controller.disableCategory);
 
-router.put("/enable/:_id", controller.enableCategory);
+router.patch("/:_id", controller.enableCategory);
 
 export {
     router,

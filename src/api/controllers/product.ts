@@ -44,6 +44,7 @@ const putProduct = async (req: Request, res: Response) => {
         const { _id } = req.params;
         const data = req.body;
         const result = await service.updateProduct(_id, data);
+        res.send(result);
     } catch (e) {
         res.send('ERROR_PUT_PRODUCT');
     }
