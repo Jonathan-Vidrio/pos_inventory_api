@@ -5,10 +5,12 @@ const CategorySchema = new Schema<ICategory>(
     {
         name: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
-        description: String,
+        description: {
+            type: String,
+            required: true
+        },
         status: {
             type: Number,
             default: 1

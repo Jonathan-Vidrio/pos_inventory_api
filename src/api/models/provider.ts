@@ -5,8 +5,7 @@ const ProviderSchema = new Schema<IProvider>(
     {
         name: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         firstSurname: {
             type: String,
