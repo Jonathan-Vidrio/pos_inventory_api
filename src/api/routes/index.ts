@@ -5,9 +5,11 @@ const PATH_ROUTER = `${__dirname}`;
 const router = Router();
 
 readdirSync(PATH_ROUTER).forEach((file) => {
-    if (file === 'index.ts') return;
-    const routerFile = require(`./${file}`);
-    router.use(`/${file.split('.')[0]}`, routerFile.router);
+    const fileName = file.split('.')[0];
+    console.log(fileName);
+    if (fileName !== 'index') {
+        router.use(`/${fileName}`, require(`./${fileName}`).default);
+    }
 });
 
 export default router;

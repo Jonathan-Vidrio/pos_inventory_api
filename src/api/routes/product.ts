@@ -17,6 +17,4 @@ router.delete("/:_id", controller.disableProduct);
 
 router.patch("/:_id", controller.enableProduct);
 
-export {
-    router,
-}
+export default router;

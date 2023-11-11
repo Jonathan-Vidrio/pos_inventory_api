@@ -17,6 +17,4 @@ router.delete("/:_id", controller.disableCategory);
 
 router.patch("/:_id", controller.enableCategory);
 
-export {
-    router,
-}
+export default router;

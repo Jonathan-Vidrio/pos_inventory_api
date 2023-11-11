@@ -17,6 +17,4 @@ router.delete("/:id", controller.disableJob);
 
 router.patch("/:id", controller.enableJob);
 
-export {
-    router,
-}
+export default router;

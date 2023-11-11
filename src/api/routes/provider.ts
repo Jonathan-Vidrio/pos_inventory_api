@@ -17,6 +17,4 @@ router.delete("/:id", controller.disableProvider);
 
 router.patch("/:id", controller.enableProvider);
 
-export {
-    router,
-}
+export default router;
